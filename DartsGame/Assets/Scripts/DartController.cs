@@ -167,6 +167,22 @@ public class DartController : MonoBehaviour
             rigidbody.AddRelativeForce(Vector3.right * upForce);
             rigidbody.AddRelativeForce(Vector3.forward * rightForce);
         }
+
+        // TODO: Need to pick a point along the wall to aim for and then try calculating via CalculateTrajectory() and something like this to aim:
+        /*
+         * 
+         *         public override Quaternion AimRotation(Vector3 start, Vector3 end, Vector3 velocity){
+ 
+            float low;
+            //float high;
+            Ballistics.CalculateTrajectory (start, end, velocity, out low);//, out high); //get the angle
+ 
+ 
+            Vector3 wantedRotationVector = Quaternion.LookRotation (end - start).eulerAngles; //get the direction
+            wantedRotationVector.x = low; //combine the two
+            return Quaternion.Euler (wantedRotationVector); //into a quaternion
+        } // from https://forum.unity.com/threads/projectile-trajectory-prediction.664909/
+         */
     }
 
     private void DisableMovement()
